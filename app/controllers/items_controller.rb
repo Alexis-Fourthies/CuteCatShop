@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def index
+    @items = Item.all
   end
 
   def show
@@ -13,4 +14,16 @@ class ItemsController < ApplicationController
 
   def update
   end
-end
+
+
+
+
+
+
+
+
+
+
+
+
+end # end of class 'ItemsController'
