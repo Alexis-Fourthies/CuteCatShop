@@ -14,9 +14,7 @@ class CartsController < ApplicationController
   end
 
   def update
-    puts "#"*50
-    puts "on est dans la méthode update du controller carts"
-    puts "#"*50
+
   end
 
   def destroy

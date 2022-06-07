@@ -15,11 +15,11 @@
         <%if user_signed_in? %>
     <%end%>
 
-    <!--test affichage panier-->
-        <%= current_user.cart%>
+    <!--test affichage panier du current_user -->
+    <p>test d'affichage du cart du current_user :  <%= current_user.cart%>
         
-        
-     <!--<%#= link_to "Ajouter au Panier", cart_path(@cart), method: :put %>-->
+    <!-- A faire plus tard -->    
+    <%#= link_to "Ajouter au Panier", cart_path(@cart), method: :put %>
 
     
   </main>
