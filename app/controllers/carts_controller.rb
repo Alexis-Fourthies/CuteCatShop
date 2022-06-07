@@ -9,6 +9,12 @@ class CartsController < ApplicationController
   end
 
   def show
+    puts params.inspect
+
+
+    puts "#"*50
+    puts "on est dans le show"
+
   end
 
   def update
