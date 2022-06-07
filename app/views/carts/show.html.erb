@@ -2,6 +2,6 @@
 
 <p>Montant du Panier (Total) = <%= @total %> €.</p>
 
-
+<%= link_to "Retirer du Panier", cart_item_path(@cart.id), method="delete" %>
 
 
