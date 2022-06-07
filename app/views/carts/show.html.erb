@@ -1,6 +1,12 @@
 <h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
 
 <%= button_to "Confirmer la commande", orders_path, method: :post %>
 
+<!-- Code de Julien pour montrer à Nico [A SUPPRIMER] --> 
+<p>Current_user : <%= current_user.inspect %></p>
+<p>Current_user.cart.id : <%= current_user.cart.id %></p>
+
+<p>Current_user.cart.items.length : <%= current_user.cart.items.length %></p>
+
+<p>Total des prix des items de ce cart : <%= @total %>
 
