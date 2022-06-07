@@ -1,0 +1,28 @@
+<main class="containers mb-5 mt-5">
+
+    <div class="img-show mr-5">
+        <%= image_tag @item.image_url, height: "500px;"%>
+     </div>
+
+     <div class="col-5">
+        <div class="info text-left">
+        <h1 class="mt-5"> <%= @item.title%><h1>
+        <p> <%= @item.description%> </p>
+        <p class= "h3 mb-5"> Prix: <%=@item.price%>
+
+        </div>
+    </div>
+        <%if user_signed_in? %>
+    <%end%>
+
+    <!--test affichage panier-->
+        <%= current_user.cart%>
+        
+        
+     <!--<%#= link_to "Ajouter au Panier", cart_path(@cart), method: :put %>-->
+
+    
+  </main>
+
+
+      
