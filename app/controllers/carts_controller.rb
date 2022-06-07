@@ -10,6 +10,7 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
+    @cart.totalprice 
   end
 
   def update
@@ -22,17 +23,23 @@ class CartsController < ApplicationController
   def edit
   end
 
+  private
 
+  def self.totalprice
+    @total = 0
 
-  def total
+    puts "#"*50
+    puts "@total= #{@total}"
+    puts "#"*50
+
     @cart = Cart.find(params[:id])
-    amount = []
-
     @cart.items.each do |item|
-      amount << item.price
+      @total = @total + item.price
     end
-    
-    return amount.sum
+    puts "#"*50
+    puts "@total= #{@total}"
+    puts "#"*50
   end
 
-end # end of 'CartsController'
+
+end
