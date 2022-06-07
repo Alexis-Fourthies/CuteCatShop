@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
     before_action :authenticate_user!, expect: [:index, :show]
 
   def index
+    @items = Item.all
   end
 
   def show
@@ -14,4 +15,9 @@ class ItemsController < ApplicationController
      @cart = @user.cart
   end
 
-end
+
+
+
+
+
+end # end of class 'ItemsController'
