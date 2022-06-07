@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+
   def new
   end
 
@@ -17,9 +19,18 @@ class CartsController < ApplicationController
     puts "#"*50
   end
 
-  def delete
+  def destroy
   end
 
   def edit
+  end
+
+
+  private
+
+  def authenticate_user
+    unless current_user
+      redirect_to new_session_path
+    end
   end
 end

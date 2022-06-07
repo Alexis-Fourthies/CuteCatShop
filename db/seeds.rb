@@ -24,7 +24,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
 # Création des instances pour chaque modèle
 i=1
 20.times do
-  User.create(email: "user#{i}@yopmail.com", password:"123465")
+  User.create(email: "user#{i}@yopmail.com", password:"123456")
   i+=1
 end
 
