@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+          <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
     <title>CuteCatShop</title>
+            <!-- Favicon
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+<!--        <link href="css/styles.css" rel="stylesheet" /> -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,30 +22,12 @@
 
   <body>
   
-  <!-- Affichage des messages de la méthode "flash" -->
-    <% flash.each do |type, msg| %>
-      <%= msg %>      
-    <% end %>
+<%= render partial: 'layouts/navbar' %>
+<%= render partial: 'layouts/jumbotron' %>
 
-
-    <% if user_signed_in? %>
-      <p>
-        <strong>
-          Le user loggé est <%= current_user.inspect %><br/>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete %><br/>
-          <%= link_to "Voir le cart du current_user", cart_path(current_user.cart) %>
-        </strong>    
-      </p>
-    <% else %>
-      <p>
-        <strong>
-          Aucun user connecté : <%= link_to "Sign up",  new_user_registration_path %> - <%= link_to "Sign In",  new_user_session_path %>
-        </strong>
-      </p> 
-    <% end %>
 
     <%= yield %>
-
+<%= render partial: 'layouts/footer' %>
 
   </body>
 
