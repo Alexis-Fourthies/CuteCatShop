@@ -11,6 +11,7 @@ class CartsController < ApplicationController
   end
 
   def show
+
     # Code de Julien pour montrer à Nico [A SUPPRIMER]
      
     @cart = current_user.cart
