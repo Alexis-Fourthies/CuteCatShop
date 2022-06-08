@@ -22,13 +22,17 @@
           Aucun user connecté : <%= link_to "Sign up",  new_user_registration_path %> - <%= link_to "Sign In",  new_user_session_path %>
         </strong>
       </p> 
+
     <% end %>
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
+        </form>
+             <%if user_signed_in?%>
+                 <%= link_to  "Cart", cart_path(current_user.id), class: "btn btn-outline-dark flex-shrink-0 bi-cart-fill me-1"%>
+                  </div>
+                     </a>
+                       <%else%>
+                         <%= link_to  "Cart", new_user_session_path, class: "btn btn-outline-dark flex-shrink-0 bi-cart-fill me-1"%>
+                          <%end%>
+                                        
                 </div>
             </div>
         </nav>
