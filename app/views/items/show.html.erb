@@ -17,7 +17,7 @@
 
     <!--test affichage panier-->
         <%= current_user.cart%>
-        
+        <%= link_to "Ajouter au Panier", cart_items_path+"?item=#{@item.id}", method: :post %>
         
      <!--<%#= link_to "Ajouter au Panier", cart_path(@cart), method: :put %>-->
 
