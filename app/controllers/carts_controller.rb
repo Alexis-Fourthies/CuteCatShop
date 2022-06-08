@@ -9,12 +9,16 @@ class CartsController < ApplicationController
   end
 
   def show
+    @cart = current_user.cart
+    @total = 0
+
+    @cart.items.each do |item|
+      @total = @total + item.price
+    end
   end
 
   def update
-    puts "#"*50
-    puts "on est dans la méthode update du controller carts"
-    puts "#"*50
+
   end
 
   def delete
@@ -22,4 +26,10 @@ class CartsController < ApplicationController
 
   def edit
   end
-end
+
+  private
+
+
+
+
+end # end of 'CartsController'
