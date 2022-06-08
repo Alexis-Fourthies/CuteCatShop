@@ -11,18 +11,8 @@ class CartItemsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get show" do
-    get cart_items_show_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get cart_items_update_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get cart_items_destroy_url
+  test "should get create" do
+    get cart_items_create_url
     assert_response :success
   end
 
@@ -31,8 +21,19 @@ class CartItemsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get create" do
-    get cart_items_create_url
+  test "should get update" do
+    get cart_items_update_url
+    assert_response :success
+  end
+
+  test "should get show" do
+    get cart_items_show_url
+    assert_response :success
+  end
+
+  test "should get destroy" do
+    get cart_items_destroy_url
+
     assert_response :success
   end
 

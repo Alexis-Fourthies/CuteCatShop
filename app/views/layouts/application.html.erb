@@ -11,14 +11,32 @@
   </head>
 
   <body>
-  <% if user_signed_in? %>
-    <%= current_user.inspect %>
-     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  <% else %>
-     <%= link_to "Sign up",  new_user_registration_path %>
-     <%= link_to "Sign In",  new_user_session_path %> 
-   <% end %>
+  
+  <!-- Affichage des messages de la méthode "flash" -->
+    <% flash.each do |type, msg| %>
+      <%= msg %>      
+    <% end %>
+
+
+    <% if user_signed_in? %>
+      <p>
+        <strong>
+          Le user loggé est <%= current_user.inspect %><br/>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %><br/>
+          <%= link_to "Voir le cart du current_user", cart_path(current_user.cart) %>
+        </strong>    
+      </p>
+    <% else %>
+      <p>
+        <strong>
+          Aucun user connecté : <%= link_to "Sign up",  new_user_registration_path %> - <%= link_to "Sign In",  new_user_session_path %>
+        </strong>
+      </p> 
+    <% end %>
+
     <%= yield %>
+
+
   </body>
 
 </html>

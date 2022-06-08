@@ -35,5 +35,5 @@ class CartItemsController < ApplicationController
     puts "#"*100
 
   end
-  
+ 
 end
