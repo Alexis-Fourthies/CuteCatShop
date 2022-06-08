@@ -1,23 +1,25 @@
 <h1>Carts#show</h1>
 
 
-<!-- Code de Julien pour montrer à Nico [A SUPPRIMER] --> 
-<p>
-  <strong>
+<!-- Code de Julien  --> 
+<ul>
+  <li>
+    <strong>Infos sur le current_user :</strong><br/>
     Cart du current_user : <%= current_user.cart.id %> [current_user.cart.id]<br/>
     Nombre d'objets dedans : <%= current_user.cart.items.length %> [current_user.cart.items.length]<br/>
-    Total des prix des items de ce cart : <%= @total %>
-  </strong>
-</p>
 
-<%= button_to "Confirmer la commande", orders_path+"?total=#{@total}" , method: :post %>
-
-
-<p>
-    Cart actuellement affiché : n°<%= Cart.find(params[:id]).id %> [Cart.find(params[:id])]
-</p>
-
-
-
+    Total des prix des items de ce cart : <%= @total %> €.
+  </li>
+  <li>
+      <strong>Partie terminée : retirer un item du panier</strong><br/>
+      <% current_user.cart.cart_items.each do |cart_item| %>
+        Cart_item n° <%= cart_item.id %> <%= cart_item %> <%= cart_item.item.title %> <%= link_to "Retirer l'item du panier", cart_item_path+"?item_id_to_delete=#{cart_item.item.id}", method: :delete %> <br/>
+      <% end %>
+  </li>
+  <li>
+    <strong>Partie en cours de codage : les actions qui font suite à la conformation de la commande (création de la commande + vidage du panier)</strong>
+    <%= button_to "Confirmer la commande", orders_path+"?total=#{@total}" , method: :post %>
+  </li>
+</ul>
 
 

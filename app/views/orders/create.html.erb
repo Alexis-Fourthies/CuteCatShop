@@ -1,7 +1,7 @@
 <h1>Orders#create</h1>
 <p>
   <strong>
-    La commande fraîchement crée est :<br/>
+    La commande fraîchement créée est :<br/>
     <%= @order.inspect %>
   </strong>
 </p>
@@ -9,11 +9,11 @@
 <p>
   <strong><u>Le cart à vider est <%= @current_user.cart%> :</u></strong><br/>
     Les cartitems associés à ce cart sont : <%= @cartitem_to_empty %><br/>
-    Ils sont au nombre de : <%= @cartitem_to_empty.size %><br/>
-    Les items associés à chaque cartitem sont :<br/>
+    <%# Ils sont au nombre de : <%= @cartitem_to_empty.size %><br/> 
+    <%# Les items associés à chaque cartitem sont :<br/> %>
       
-    <% @cartitem_to_empty.each do |cartitem| %>
-      <%= cartitem.item.title %><br/>
-    <% end %>
+    <%# <% @cartitem_to_empty.each do |cartitem| %> 
+      <%# <%= cartitem.item.title %><br/> 
+    <%# <% end %> 
 
 </p>
