@@ -1,12 +1,19 @@
 <h1>Carts#show</h1>
 
-<%= button_to "Confirmer la commande", orders_path, method: :post %>
+
 
 <!-- Code de Julien pour montrer à Nico [A SUPPRIMER] --> 
-<p>Current_user : <%= current_user.inspect %></p>
-<p>Current_user.cart.id : <%= current_user.cart.id %></p>
+<p>
+  <strong>
+    Cart du current_user : <%= current_user.cart.id %> [current_user.cart.id]<br/>
+    Nombre d'objets dedans : <%= current_user.cart.items.length %> [current_user.cart.items.length]<br/>
+    Total des prix des items de ce cart : <%= @total %>
+  </strong>
+</p>
 
-<p>Current_user.cart.items.length : <%= current_user.cart.items.length %></p>
+<%= button_to "Confirmer la commande", orders_path+"?total=#{@total}" , method: :post %>
 
-<p>Total des prix des items de ce cart : <%= @total %>
 
+<p>
+    Cart actuellement affiché : n°<%= Cart.find(params[:id]).id %> [Cart.find(params[:id])]
+</p>

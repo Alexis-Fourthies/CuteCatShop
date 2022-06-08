@@ -40,9 +40,9 @@ i=1
   i+=1
 end
 
-# 20.times do
-#   CartItem.create(cart:Cart.find(rand(Cart.first.id..Cart.last.id)), item:Item.find(rand(Item.first.id..Item.last.id)))
-# end
+20.times do
+  CartItem.create(cart:Cart.find(rand(Cart.first.id..Cart.last.id)), item:Item.find(rand(Item.first.id..Item.last.id)))
+end
 # PAS DE CREATION DE cartitem par un seed car ces instances sont crées au moment où le user ajout un item dans son cart
 
 # 20.times do
