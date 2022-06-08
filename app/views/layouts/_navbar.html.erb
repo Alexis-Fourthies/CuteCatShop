@@ -14,6 +14,13 @@
         <strong>
           Le user loggé est <%= current_user.inspect %><br/>
           <%= link_to "Logout", destroy_user_session_path, method: :delete %><br/>
+<<<<<<< HEAD
+=======
+          <%#= link_to "Voir le cart du current_user", cart_path(current_user.cart) %>
+          <!-- La ligne du dessus fait planter l'affichage du cart : à réparer (Julien est dessus)-->
+
+
+>>>>>>> empty_cart
         </strong>    
       </p>
     <% else %>

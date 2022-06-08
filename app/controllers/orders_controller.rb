@@ -7,6 +7,8 @@ class OrdersController < ApplicationController
   end
 
   def create
+
+    # Affichage de contrôle de fonction (supprimable à terme)
     puts "#"*100
     puts "On est arrivé dans orders#create"
     puts "#"*100
@@ -16,41 +18,19 @@ class OrdersController < ApplicationController
     
     # Vérififcation de la création avec des puts en console
     puts "#"*100
-    puts "La commande fraîchement créée est :\n#{@order.inspect}"
+    puts "La commande nouvellement créée est :\n#{@order.inspect}"
     puts "#"*100
 
-    # Récupération des bonnes données pour vider ce panier
-    @cartitem_to_empty = CartItem.where(cart:current_user.cart)
-    # Vérififcation de la création par des puts en console
-    puts "#"*100
-    puts "Le cart à vider est :\n#{@current_user.cart}"
-    puts "Les cartitems associé à ce cart sont : #{@cartitem_to_empty}"
-    puts "Ils sont au nombre de : #{@cartitem_to_empty.size}"
-    puts "Les items associés à chaque cartitem sont :"
-    
-    @cartitem_to_empty.each do |cartitem|
-      puts cartitem.item.title
+    # Opération de vidage du panier 
+    all_cart_items = CartItem.all
+    all_cart_items.each do |cart_item|
+      if cart_item.cart == current_user.cart
+        
+        cart_item.destroy
+        flash.notice = "Cart vidé (via une commande cart_item.destroy)"
+        redirect_to root_path and return
+      else
     end
-    puts "#"*100
-
-    # Actiond de vidage du panier
-    puts "#"*100
-    puts "Début de suppression de chaque cartitem"
-    @cartitem_to_empty.each do |cartitem|
-      puts cartitem.destroy
-    end
-    puts "#"*100
-
-    # Vérififcation du vidage avec des puts en console
-    puts "#"*100
-    puts "Le cart supposément vidé est :\n#{@current_user.cart}"
-    puts "Les cartitems associé à ce cart sont : #{@cartitem_to_empty}"
-    puts "Ils sont au nombre de : #{@cartitem_to_empty.size}"
-    puts "Les items associés à chaque cartitem sont :"
-    @cartitem_to_empty.each do |cartitem|
-      puts cartitem.item.title
-    end
-    puts "#"*100
 
   end
 
