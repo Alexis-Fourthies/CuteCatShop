@@ -1,0 +1,13 @@
+<p>*mettre du code ici pour mettre en forme une 'card'*</p>
+
+<ul>
+  <% @items.each do |item|  %>    
+    <li>
+        <p>Item.title = <%= item.title  %><br/>
+        Item.image_url = <%= item.image_url  %><br/>
+        Item.description = <%= item.description  %><br/>
+        Item.price = <%= item.price  %><br/>     
+        </p>   
+    </li>
+  <% end %>
+</ul>
