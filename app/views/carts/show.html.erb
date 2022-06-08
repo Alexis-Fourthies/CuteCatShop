@@ -1,7 +1,6 @@
 <h1>Carts#show</h1>
 
 
-
 <!-- Code de Julien pour montrer à Nico [A SUPPRIMER] --> 
 <p>
   <strong>
@@ -17,3 +16,11 @@
 <p>
     Cart actuellement affiché : n°<%= Cart.find(params[:id]).id %> [Cart.find(params[:id])]
 </p>
+
+
+<!-- Partie Nico -->
+<p>Montant du Panier (Total) = <%= @total %> €.</p>
+
+<%= link_to "Retirer du Panier", cart_item_path(@cart.id), method="delete" %>
+
+
