@@ -27,7 +27,6 @@ class OrdersController < ApplicationController
     all_cart_items = CartItem.all
     all_cart_items.each do |cart_item|
       if cart_item.cart == current_user.cart
-
         cart_item.destroy
         flash.notice = "Cart vidé (via une commande cart_item.destroy)"
       end
