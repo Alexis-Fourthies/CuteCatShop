@@ -23,6 +23,25 @@ class OrdersController < ApplicationController
     puts "La commande nouvellement créée est :\n#{@order.inspect}"
     puts "#"*100
 
+    # Before the rescue, at the beginning of the method
+    @stripe_amount = 500
+    begin
+      customer = Stripe::Customer.create({
+      email: params[:stripeEmail],
+      source: params[:stripeToken],
+      })
+      charge = Stripe::Charge.create({
+      customer: customer.id,
+      amount: @stripe_amount,
+      description: "Achat d'un produit",
+      currency: 'eur',
+      })
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to root_path # LIGNE D ORIGINE DU TUTO redirect_to new_order_path
+    end
+    # After the rescue, if the payment succeeded
+
     # Opération de vidage du panier 
     all_cart_items = CartItem.all
     all_cart_items.each do |cart_item|
