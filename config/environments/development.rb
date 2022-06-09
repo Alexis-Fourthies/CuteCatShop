@@ -64,7 +64,7 @@ Rails.application.configure do
 
   
   # Needed for gem 'letter_opener' to work:
-  config.action_mailer.delivery_method = :letter_opener
+  #config.action_mailer.delivery_method = :letter_opener
 
   # SUPER IMPORTANT -> if set to 'false' or not present, the ActionMailer cannot work:
   config.action_mailer.perform_deliveries = true
