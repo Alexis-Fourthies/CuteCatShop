@@ -42,10 +42,6 @@ class OrdersController < ApplicationController
     all_cart_items = CartItem.all
     all_cart_items.each do |cart_item|
       if cart_item.cart == current_user.cart
-<<<<<<< HEAD
-
-=======
->>>>>>> sendgrid_settings
         
         cart_item.destroy
         flash.notice = "paiement terminé - cart vidé (via une commande cart_item.destroy)"
