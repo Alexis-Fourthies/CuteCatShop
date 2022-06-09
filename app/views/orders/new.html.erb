@@ -1,20 +1,26 @@
-<p><strong>Paiement à faire pour le user : <%= current_user.inspect %> !</strong></p>
-<%= form_tag orders_path do %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 pt-5">
+    <div class="alert alert-warning" role="alert">
+  
+      <h1 class="text-center">Cliquez sur le lien suivant pour procéder au paiement de <%= @amount %>0€ </h1>
+      <div class="d-flex justify-content-center pt-5">
+      <%= form_tag orders_path do %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>Son prix est de : <%= @amount %> €</span>
-    </label>
-  </article>
-  <br/>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
   data-description="Cute Cat Shop"
   data-amount=<%= @stripe_amount %>
   data-currency="eur"
   data-locale="auto"></script>
 <% end %>
+</div>
+    </div>
+  </div>
+
+</div>
