@@ -15,11 +15,9 @@ Ruby 2.7.4, Rails 5.2.3.
 ### Gems :
 
 table_print
-faker
 dotenv-rails
 devise
 stripe
-aws-sdk-s3
 friendly_id
 
 ### How to use :
