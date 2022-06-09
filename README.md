@@ -6,7 +6,7 @@
 
 DA SILVA PEREIRA DE OLIVEIRA Karine | CUBILIER Nicolas | FOURTHIES Alexis | ARMAGNAC Julien - (Mentor's project : Wilfried PAILLOT <-- thousands of thanks)
 
-### Dev environment
+### Dev environment :
 
 - Ruby 2.7.4, Rails 5.2.3.
 - [DB link](https://lucid.app/lucidchart/bc6694b3-ed3f-487b-8163-a9ade1a71581/edit?page=0_0#)
