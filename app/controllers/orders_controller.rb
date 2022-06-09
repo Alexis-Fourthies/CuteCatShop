@@ -36,10 +36,13 @@ class OrdersController < ApplicationController
     end
     # After the rescue, if the payment succeeded
 
+
     # Opération de vidage du panier 
     all_cart_items = CartItem.all
     all_cart_items.each do |cart_item|
       if cart_item.cart == current_user.cart
+
+        
         cart_item.destroy
 
         flash.notice = "paiement terminé - cart vidé (via une commande cart_item.destroy)"
@@ -48,6 +51,7 @@ class OrdersController < ApplicationController
     end
     redirect_to root_path
   end
+ 
 
   def show
   end
