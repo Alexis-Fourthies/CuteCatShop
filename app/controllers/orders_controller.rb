@@ -7,51 +7,32 @@ class OrdersController < ApplicationController
   end
 
   def create
+
+    # Affichage de contrôle de fonction (supprimable à terme)
     puts "#"*100
     puts "On est arrivé dans orders#create"
+    puts "params[:total] = #{params[:total]}"
+    puts "params[:total].class = #{params[:total].class}"
     puts "#"*100
 
     # Transformer le panier en nouvelle commande
-    @order = Order.create(user:current_user, total_amount:params[:total]) #Le total_amount sera mettre à jour après le travail sur le back du carts#show
+    @order = Order.create(user:current_user, total_amount:params[:total].to_f) #Le total_amount sera mettre à jour après le travail sur le back du carts#show
     
     # Vérififcation de la création avec des puts en console
     puts "#"*100
-    puts "La commande fraîchement créée est :\n#{@order.inspect}"
+    puts "La commande nouvellement créée est :\n#{@order.inspect}"
     puts "#"*100
 
-    # Récupération des bonnes données pour vider ce panier
-    @cartitem_to_empty = CartItem.where(cart:current_user.cart)
-    # Vérififcation de la création par des puts en console
-    puts "#"*100
-    puts "Le cart à vider est :\n#{@current_user.cart}"
-    puts "Les cartitems associé à ce cart sont : #{@cartitem_to_empty}"
-    puts "Ils sont au nombre de : #{@cartitem_to_empty.size}"
-    puts "Les items associés à chaque cartitem sont :"
-    
-    @cartitem_to_empty.each do |cartitem|
-      puts cartitem.item.title
+    # Opération de vidage du panier 
+    all_cart_items = CartItem.all
+    all_cart_items.each do |cart_item|
+      if cart_item.cart == current_user.cart
+        
+        cart_item.destroy
+        flash.notice = "Cart vidé (via une commande cart_item.destroy)"
+      end
     end
-    puts "#"*100
-
-    # Actiond de vidage du panier
-    puts "#"*100
-    puts "Début de suppression de chaque cartitem"
-    @cartitem_to_empty.each do |cartitem|
-      puts cartitem.destroy
-    end
-    puts "#"*100
-
-    # Vérififcation du vidage avec des puts en console
-    puts "#"*100
-    puts "Le cart supposément vidé est :\n#{@current_user.cart}"
-    puts "Les cartitems associé à ce cart sont : #{@cartitem_to_empty}"
-    puts "Ils sont au nombre de : #{@cartitem_to_empty.size}"
-    puts "Les items associés à chaque cartitem sont :"
-    @cartitem_to_empty.each do |cartitem|
-      puts cartitem.item.title
-    end
-    puts "#"*100
-
+    redirect_to root_path
   end
 
   def show
