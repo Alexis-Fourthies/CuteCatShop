@@ -44,10 +44,10 @@ class OrdersController < ApplicationController
       if cart_item.cart == current_user.cart
         
         cart_item.destroy
-        flash.notice = "paiement terminé - cart vidé (via une commande cart_item.destroy)"
+        
       end
     end
-    redirect_to root_path
+    redirect_to order_path(@order)
   end
  
 
