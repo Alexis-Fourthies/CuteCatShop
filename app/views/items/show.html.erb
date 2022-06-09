@@ -1,28 +1,29 @@
-<main class="containers mb-5 mt-5">
 
-    <div class="img-show mr-5">
-        <%= image_tag @item.image_url, height: "500px;"%>
-     </div>
+          <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    <div class="col-md-6">
+                        
+                        <h1 class="display-5 fw-bolder"><%= @item.title %></h1>
+                        <div class="fs-5 mb-5">
+                            <!-- minifix .0€-->
+                            <span><%= @item.price %>0€</span>
+                        </div>
+                        <p class="lead"><%= @item.description %></p>
+                        <div class="d-flex">
+    <!--                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> -->
+                                            <% if user_signed_in? %>
+                            <%= link_to  "Add to cart", cart_items_path+"?item=#{@item.id}", method: :post, class: "btn btn-outline-dark flex-shrink-0"%>
+                          <% else %>
+                            <%= link_to  "Add to cart", new_user_session_path, class: "btn btn-outline-dark flex-shrink-0"%>
+                          <%end%>
 
-     <div class="col-5">
-        <div class="info text-left">
-        <h1 class="mt-5"> <%= @item.title%><h1>
-        <p> <%= @item.description%> </p>
-        <p class= "h3 mb-5"> Prix: <%=@item.price%>
-
-        </div>
-    </div>
-        <%if user_signed_in? %>
-    <%end%>
-
-    <!--test affichage panier-->
-        <%= current_user.cart%>
-        
-        
-     <!--<%#= link_to "Ajouter au Panier", cart_path(@cart), method: :put %>-->
-
-    
-  </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
