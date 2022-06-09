@@ -1,6 +1,8 @@
 class UserMailer < ApplicationMailer
-  default from: 'n.cubilier@gmail.com' # à ne pas modifier car c'est la seule 'sender address' validée sur mon compte mailJet pour le moment.
- 
+
+  # default from: 'n.cubilier@gmail.com' # à ne pas modifier car c'est la seule 'sender address' validée sur mon compte mailJet pour le moment.
+  default from: 'cutecatshop@julien-armagnac.com'
+
   def welcome_email(user)
     #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
     @user = user 
