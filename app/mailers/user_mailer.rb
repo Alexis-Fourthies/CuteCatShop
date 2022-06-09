@@ -27,5 +27,4 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Récapitulatif de votre commande sur CuteCatShop.fr !') 
   end
 
-
 end
