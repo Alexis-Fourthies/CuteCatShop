@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
+          <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
     <title>CuteCatShop</title>
+            <!-- Favicon
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" /> -->
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+<!--        <link href="css/styles.css" rel="stylesheet" /> -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
   </head>
 
   <body>
+  
+<%= render partial: 'layouts/navbar' %>
+<%= render partial: 'layouts/flashmessage' %>
+<%= render partial: 'layouts/jumbotron' %>
+
+
     <%= yield %>
+<%= render partial: 'layouts/footer' %>
+
   </body>
+
 </html>

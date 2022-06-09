@@ -1,0 +1,21 @@
+        <nav class="navbar navbar-expand-lg navbar-light border-bottom">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href=<%=root_path%>><%= image_tag "logobis3.png"%> </a>
+                <div class="container px-5">
+
+                        <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %><br/>  
+  
+    <% else  %>
+ <%= link_to "Sign up",  new_user_registration_path %> - <%= link_to "Sign In",  new_user_session_path %>
+    <% end %>
+                </div>
+             <%if user_signed_in?%>
+                 <%= link_to  "Cart", cart_path(current_user.id), class: "btn btn-outline-dark flex-shrink-0 bi-cart-fill me-1"%>
+                       <%else%>
+                         <%= link_to  "Cart", new_user_session_path, class: "btn btn-outline-dark flex-shrink-0 bi-cart-fill me-1"%>
+                          <%end%>
+                                        
+                </div>
+            </div>
+        </nav>
