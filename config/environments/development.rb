@@ -60,4 +60,13 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+
+  
+  # Needed for gem 'letter_opener' to work:
+  #config.action_mailer.delivery_method = :letter_opener
+
+  # SUPER IMPORTANT -> if set to 'false' or not present, the ActionMailer cannot work:
+  config.action_mailer.perform_deliveries = true
+
 end
