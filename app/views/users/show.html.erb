@@ -1,6 +1,13 @@
-<h1>Users#show : PROFIL USER</h1>
-<p><strong>Informations du curren_user :</strong></p>
-<p>Email : <%= current_user.email %></p>  
-  
-<%= link_to 'Editer le profil', edit_user_registration_path(current_user.id), class:"btn btn-success" %>
+<div class="main-div">
+  <h2><strong>Bienvenue sur ta Page de Profil :</strong></h2>
+</div>
 
+<div class="sec-div">
+  <div>
+    <p><br>Email : <%= current_user.email %></p>
+  </div>
+   
+  <div>
+    <%= link_to 'Editer le profil', edit_user_registration_path(current_user.id), class:"btn btn-success" %>
+  </div>    
+</div>
