@@ -1,4 +1,8 @@
 class Item < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+  
+
   validates :title, 
     presence: true,
     length: { maximum: 30 }
