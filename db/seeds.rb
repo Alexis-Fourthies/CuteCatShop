@@ -34,13 +34,37 @@ end
 #   Cart.create(user:User.find(i))
 #   i+=1
 # end
+image_url = [ "https://i.ibb.co/VtrvjsK/gripsou.jpg",
+  "https://i.ibb.co/5cxjcv9/gabriel.jpg",
+  "https://i.ibb.co/87vqnzs/muskitty.jpg",
+  "https://i.ibb.co/3fSPXmY/voldemort.jpg",]
+
+description = [
+   "Le chat ténébreux indépendant qui préfère faire comme si ses maîtres n'exister pas!! (produit photo)",
+   "fêtard de la bande n'en rate pas une pour faire tourner ses maîtres en bourrique (produit photo)",
+   "Le petit flemmard de la bande qui prend toute la place dans les lits (produit photo)",
+   "Grand matou intimidant !! Poursuis une cible sans relache! (produit photo)",
+   "Adorable rouquine qui tourne autour de nos assiettes (produit photo)",
+   "Grand Cat entrepreneur travail plus que ses maîtres (produit photo)",]
+
+title = ["Ginger",
+   "Grey",
+   "Muskitty",
+    "Shadow",
+    "Potato",
+    "Alexis",
+    "Nicolas",
+    "Julien",
+    "Karine",]        
 
 
 i=1
-20.times do
-  Item.create(title:"item n°#{i}", description:"Item n°#{i} is a useful item.", price:10, image_url:"http://item#{i}.png")
+  8.times do
+  Item.create(title: title.sample, description: description.sample, price:10, image_url: image_url.sample )
   i+=1
 end
+
+
 
 20.times do
   CartItem.create(cart:Cart.find(rand(Cart.first.id..Cart.last.id)), item:Item.find(rand(Item.first.id..Item.last.id)))
