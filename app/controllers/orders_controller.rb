@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
       })
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to root_path # LIGNE D ORIGINE DU TUTO redirect_to new_order_path
+      redirect_to root_path
     end
     # After the rescue, if the payment succeeded
 

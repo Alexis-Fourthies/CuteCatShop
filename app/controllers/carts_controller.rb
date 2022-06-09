@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_cart_owner
 
   def new
   end
@@ -11,11 +12,8 @@ class CartsController < ApplicationController
   end
 
   def show
-
     # Code de Julien pour montrer à Nico [A SUPPRIMER]
-     
     @cart = current_user.cart
-
     @total = 0
 
     puts "#"*50
@@ -29,7 +27,6 @@ class CartsController < ApplicationController
     puts "#"*50
     puts "total (APRES le each) = #{@total}"
     puts "#"*50
-
   end
 
   def update
@@ -42,5 +39,15 @@ class CartsController < ApplicationController
   def edit
   end
 
+  private
+
+  def check_cart_owner
+    cart_owner = Cart.find(params[:id]).user
+        
+    unless current_user == cart_owner
+      flash.notice = "Accès non autorisé."
+      redirect_to root_path
+    end
+  end
 
 end
