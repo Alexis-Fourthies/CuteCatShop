@@ -1,8 +1,15 @@
 class UserMailer < ApplicationMailer
+<<<<<<< HEAD
 
   # default from: 'n.cubilier@gmail.com' # à ne pas modifier car c'est la seule 'sender address' validée sur mon compte mailJet pour le moment.
   default from: 'cutecatshop@julien-armagnac.com'
 
+=======
+  # default from: 'n.cubilier@gmail.com' # MAILJET
+  # default from: 'cutecatshop@julien-armagnac.com' #SENDGRID
+  default from: 'potatosaurusflex@ik.me' # MAILJET
+  
+>>>>>>> sendgrid_settings
   def welcome_email(user)
     #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
     @user = user 
@@ -15,18 +22,22 @@ class UserMailer < ApplicationMailer
   end
 
 
-  def order_recap_email(user)
+  def order_recap_email(order)
     #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
-    @user = user 
-
+    
     #on récupère l'instance de la commande en question
-    @order = user.order.last
+    @order = order
 
     #on définit une variable @url qu'on utilisera dans la view d’e-mail
     @url  = 'https://cutecatshop.herokuapp.com/' 
 
     # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
-    mail(to: @user.email, subject: 'Récapitulatif de votre commande sur CuteCatShop.fr !') 
+    mail(to: @order.user.email, subject: 'Récapitulatif de votre commande sur CuteCatShop.fr !') 
+  end
+
+  def admin_order_email(order)
+    @order = order
+    mail(to: "potatosaurusflex@ik.me", subject: 'Une commande vient d\'passée !')
   end
 
 end
