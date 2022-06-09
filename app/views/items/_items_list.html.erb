@@ -16,7 +16,7 @@
   <% @items.each do |item|  %>
     <div class="col-sm-4 w-25 mx-auto">
       <div class="card border-dark text-center">
-    <img class="card-img-top" src="<%=item.image_url%>" alt="..." />
+    <img class="card-img-top" src="<%=url_for(item.image_url)%>" alt="..." />
         <div class="card-body">
           <h5 class="card-title"><%=item.title%></h5>
           <p class="card-text"><%=item.price%>0€</p>
