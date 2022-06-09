@@ -4,21 +4,21 @@
 
 ### Credits :
 
-DA SILVA PEREIRA DE OLIVEIRA Karine - CUBILIER Nicolas - FOURTHIES Alexis - ARMAGNAC Julien (Mentor's project : Wilfried PAILLOT <-- thousands of thanks)
+DA SILVA PEREIRA DE OLIVEIRA Karine | CUBILIER Nicolas | FOURTHIES Alexis | ARMAGNAC Julien - (Mentor's project : Wilfried PAILLOT <-- thousands of thanks)
 
 ### Dev environment
 
-Ruby 2.7.4, Rails 5.2.3.
-[DB link](https://lucid.app/lucidchart/bc6694b3-ed3f-487b-8163-a9ade1a71581/edit?page=0_0#)
-[Trello](https://trello.com/b/BrfYKr5c/projet-chat-thp)
+- Ruby 2.7.4, Rails 5.2.3.
+- [DB link](https://lucid.app/lucidchart/bc6694b3-ed3f-487b-8163-a9ade1a71581/edit?page=0_0#)
+- [Trello](https://trello.com/b/BrfYKr5c/projet-chat-thp)
 
 ### Gems :
 
-table_print
-dotenv-rails
-devise
-stripe
-friendly_id
+- table_print
+- dotenv-rails
+- devise
+- stripe
+- friendly_id
 
 ### How to use :
 
