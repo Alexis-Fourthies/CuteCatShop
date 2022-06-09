@@ -28,11 +28,13 @@ i=1
   i+=1
 end
 
+
 # i=1
 #   5.times do
 #   Cart.create(user:User.find(i))
 #   i+=1
 # end
+
 
 i=1
 20.times do
