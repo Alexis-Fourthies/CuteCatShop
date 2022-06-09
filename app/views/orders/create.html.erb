@@ -1,19 +1,14 @@
-<h1>Orders#create</h1>
-<p>
-  <strong>
-    La commande fraîchement créée est :<br/>
-    <%= @order.inspect %>
-  </strong>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 pt-5">
+    <div class="alert alert-success" role="alert">
+  
+      <h1 class="text-center">La commande est bien passée ! Merci !</h1>
+      <div class="d-flex justify-content-center pt-5">
+    <%= link_to  "Continuer le Shopping", root_path, class: "btn btn-secondary btn-lg me-5"%>
+</div>
+    </div>
+  </div>
 
-<p>
-  <strong><u>Le cart à vider est <%= @current_user.cart%> :</u></strong><br/>
-    Les cartitems associés à ce cart sont : <%= @cartitem_to_empty %><br/>
-    <%# Ils sont au nombre de : <%= @cartitem_to_empty.size %><br/> 
-    <%# Les items associés à chaque cartitem sont :<br/> %>
-      
-    <%# <% @cartitem_to_empty.each do |cartitem| %> 
-      <%# <%= cartitem.item.title %><br/> 
-    <%# <% end %> 
-
-</p>
+</div>
+</div>
