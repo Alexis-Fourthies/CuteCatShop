@@ -4,27 +4,20 @@ class OrdersController < ApplicationController
   end
   
   def new
+    @order = Order.create(user:current_user, total_amount:params[:total].to_f)
+    @amount = @order.total_amount
+    @stripe_amount = @amount*100
   end
 
   def create
-
-    # Affichage de contrôle de fonction (supprimable à terme)
-    puts "#"*100
-    puts "On est arrivé dans orders#create"
-    puts "params[:total] = #{params[:total]}"
-    puts "params[:total].class = #{params[:total].class}"
-    puts "#"*100
-
-    # Transformer le panier en nouvelle commande
-    @order = Order.create(user:current_user, total_amount:params[:total].to_f) #Le total_amount sera mettre à jour après le travail sur le back du carts#show
     
-    # Vérififcation de la création avec des puts en console
+    # Before the rescue, at the beginning of the method
+    @order = Order.where(user:current_user).last
+    @stripe_amount = (@order.total_amount*100).to_i # LIGNE D ORIGINE 500
     puts "#"*100
-    puts "La commande nouvellement créée est :\n#{@order.inspect}"
+    puts "@stripe_amount = #{@stripe_amount}"
     puts "#"*100
 
-    # Before the rescue, at the beginning of the method
-    @stripe_amount = 500
     begin
       customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -32,8 +25,8 @@ class OrdersController < ApplicationController
       })
       charge = Stripe::Charge.create({
       customer: customer.id,
-      amount: @stripe_amount,
-      description: "Achat d'un produit",
+      amount: @stripe_amount, 
+      description: "Acheter un produit", 
       currency: 'eur',
       })
     rescue Stripe::CardError => e
@@ -48,7 +41,7 @@ class OrdersController < ApplicationController
       if cart_item.cart == current_user.cart
         
         cart_item.destroy
-        flash.notice = "Cart vidé (via une commande cart_item.destroy)"
+        flash.notice = "paiement terminé - cart vidé (via une commande cart_item.destroy)"
       end
     end
     redirect_to root_path

@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def new
   end
@@ -43,11 +43,4 @@ class CartsController < ApplicationController
   end
 
 
-  private
-
-  def authenticate_user
-    unless current_user
-      redirect_to new_session_path
-    end
-  end
 end

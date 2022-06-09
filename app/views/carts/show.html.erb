@@ -14,16 +14,15 @@
   <li>
       <strong>Partie terminée : retirer un item du panier</strong><br/>
       <% current_user.cart.cart_items.each do |cart_item| %>
-        Cart_item n° <%= cart_item.id %> <%= cart_item %> <%= cart_item.item.title %> <%= link_to "Retirer l'item du panier", cart_item_path+"?item_id_to_delete=#{cart_item.item.id}", method: :delete %> <br/>
+        Cart_item n° <%= cart_item.id %> <%= cart_item %> <%= cart_item.item.title %> <%= link_to "Retirer du panier", cart_item_path(cart_item), method: :delete %> <br/>
       <% end %>
   </li>
   <li>
-    <strong>Partie en cours de codage : les actions qui font suite à la conformation de la commande (création de la commande + vidage du panier)</strong>
-    <%= button_to "Confirmer la commande", orders_path+"?total=#{@total}" , method: :post %>
+   <%= link_to 'PAIEMENT STRIPE', new_order_path+"?total=#{@total}", class:"btn btn-primary" %>
   </li>
 </ul>
 
-<%= link_to 'essai stripe', new_order_path %>
+
 <!-- Fin du code de Julien -->
 
 
