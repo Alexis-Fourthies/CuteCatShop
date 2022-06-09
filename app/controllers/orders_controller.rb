@@ -30,9 +30,10 @@ class OrdersController < ApplicationController
         
         cart_item.destroy
         flash.notice = "Cart vidé (via une commande cart_item.destroy)"
-      end
+        redirect_to root_path and return
+      else
     end
-    redirect_to root_path
+
   end
 
   def show
