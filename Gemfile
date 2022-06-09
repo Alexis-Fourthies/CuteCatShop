@@ -65,3 +65,5 @@ gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'devise'
 gem 'stripe'
 gem 'aws-sdk-s3', '~> 1.114'
+
+gem "friendly_id", "~> 5.4"
