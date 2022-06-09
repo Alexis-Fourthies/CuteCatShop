@@ -18,8 +18,8 @@
       <div class="card border-dark text-center">
     <img class="card-img-top" src="<%=url_for(item.image_url)%>" alt="..." />
         <div class="card-body">
-          <h5 class="card-title"><%= item.title  %></h5>
-          <p class="card-text"><%= item.price  %>€</p>
+          <h5 class="card-title"><%=item.title%></h5>
+          <p class="card-text"><%=item.price%>0€</p>
           <%= link_to "Voir", item_path(item), class:"btn btn-dark" %>
         </div>
       </div>
